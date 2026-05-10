@@ -1,0 +1,70 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int n,i;
+    int front=-1,rear=-1;
+    int value;
+    int ch;
+    char x;
+    do{
+        cout<<"1. Create Queue"<<endl;
+        cout<<"2. Insert Element"<<endl;
+        cout<<"3. Delete Element"<<endl;
+        cout<<"4. Display Queue"<<endl;
+        
+        cout<<"Enter your choice: "<<endl;
+        cin>>ch;
+
+        switch(ch){
+            case 1:
+            cout<<"Enter the number of elements in the queue: "<<endl;
+            cin>>n;
+            int queue[100];
+            cout<<"Enter the elements in the queue: ";
+            for(i=0;i<n;i++){
+                cin>>queue[i];
+            }
+            break;
+            case 2:
+            if (rear == n-1) {
+                cout << "Queue is full" << endl;
+            }
+            else {
+                if (front == -1) {
+                    front = 0;
+                }
+                rear++;
+                cout << "Enter the value to be inserted: ";
+                cin >> value;
+                queue[rear] = value;
+                cout << "Value inserted successfully" << endl;
+            }
+            break;
+            case 3:
+            if(front == -1 || front > rear) {
+                cout << "Queue is empty" << endl;
+            }
+            else {
+                cout << "Deleted element: " << queue[front] << endl;
+                front++;
+            }
+            break;
+            case 4:
+            if(front == -1 || front > rear) {
+                cout << "Queue is empty" << endl;
+            }
+            else {
+                cout << "Elements in the queue: ";
+                for(i=front;i<=rear;i++) {
+                    cout << queue[i] << " ";
+                }
+                cout << endl;
+            }
+            break;
+        }
+        cout<<"do you want to continue?"<<endl;
+        cin>>x;
+    }
+    while(x=='y'||x=='Y');
+    return 0;
+}
