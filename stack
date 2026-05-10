@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+int n,i,val, ch;
+int top = -1;
+int a[100];
+char x;
+int main(){
+    do{
+        cout<<"1.push:"<<endl;
+        cout<<"2.pop:"<<endl;
+        cout<<"Enter your choice:"<<endl;
+        cin>>ch;
+
+        switch(ch){
+            case 1:
+            cout<<"Enter numbers of array:";
+            cin>>n;
+            cout<<endl<<"Enter elements to push:";
+            for(i=0;i<n;i++){
+            cin>>val;
+
+            if(top == n-1){
+                cout<<endl<<"Top is full:"<<endl;
+            }
+            else{
+                top++;
+                a[top]=val;
+            }
+        }
+        cout<<endl<<"Stack elements are:";
+        for(i=top;i>=0;i--){
+            cout<<a[i]<<" ";
+
+        }
+        break;
+        case 2:
+        if(top==-1){
+            cout<<endl<<"Stack is empty:"<<endl;
+        }
+        else{
+            val = a[top];
+            top--;
+            cout<<"pop element is:"<<val<<endl;
+        }
+        break;
+    }
+    cout<<"do you want to continue";
+    cin>>x;
+}
+while(x == 'y' || x == 'Y');
+return 0;
+}
